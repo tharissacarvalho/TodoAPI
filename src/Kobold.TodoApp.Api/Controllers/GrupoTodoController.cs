@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Kobold.TodoApp.Api.Models;
-using Kobold.TodoApp.Api.Services;
+﻿using Microsoft.AspNetCore.Mvc;
 using Kobold.TodoApp.Api.Interfaces;
 using Kobold.TodoApp.Api.Models.TodoGroup;
 using Kobold.TodoApp.Api.Dtos;
