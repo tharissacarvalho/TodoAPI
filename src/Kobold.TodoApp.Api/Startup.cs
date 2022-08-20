@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kobold.TodoApp.Api.Interfaces;
+using Kobold.TodoApp.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +28,9 @@ namespace Kobold.TodoApp.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<ITodoService, TodoService>();
+            services.AddScoped<IGroupService, GroupService>();
+            services.AddScoped<IGroupTodoService, GroupTodoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
