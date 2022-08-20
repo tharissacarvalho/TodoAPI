@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Kobold.TodoApp.Api.Models;
-using Kobold.TodoApp.Api.Services;
+using Kobold.TodoApp.Api.Interfaces;
+using Kobold.TodoApp.Api.Dtos;
 
 namespace Kobold.TodoApp.Api.Controllers
 {
@@ -14,14 +12,13 @@ namespace Kobold.TodoApp.Api.Controllers
     [Route("[controller]")]
     public class TodosController : ControllerBase
     {
-
-        private readonly TodoService _todoService;
+        private readonly ITodoService _todoService;
         private readonly ILogger<TodosController> _logger;
 
-        public TodosController(ILogger<TodosController> logger)
+        public TodosController(ILogger<TodosController> logger, ITodoService todoService)
         {
             _logger = logger;
-            _todoService = new TodoService();
+            _todoService = todoService;
         }
 
         [HttpGet]
@@ -31,28 +28,32 @@ namespace Kobold.TodoApp.Api.Controllers
         }
 
         [HttpPost]
-        public Todo Create([FromBody] TodoViewModel todovm)
+        public ResponseDto Create([FromBody] TodoViewModel todovm)
         {
-            return _todoService.Create(todovm);
+            var response = _todoService.Create(todovm);
+            return response;
         }
 
         [HttpPut("{id}")]
-        public Todo Update([FromRoute] int id, [FromBody] TodoViewModel todovm)
+        public ResponseDto Update([FromRoute] int id, [FromBody] TodoViewModel todovm)
         {
-            return _todoService.Update(id, todovm);
+            var response = _todoService.Update(id, todovm);
+            return response;
         }
 
         [HttpGet("{id}")]
-        public Todo Get([FromRoute] int id)
+        public ResponseDto Get([FromRoute] int id)
         {
-            return _todoService.Get(id);
+            var response = _todoService.Get(id);
+            return response;
         }
+
 
         [HttpDelete("{id}")]
-        public void Remove([FromRoute] int id)
+        public ResponseDto Remove([FromRoute] int id)
         {
-            _todoService.Remove(id);
+            var response = _todoService.Remove(id);
+            return response;
         }
-
     }
 }
