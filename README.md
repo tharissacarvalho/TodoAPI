@@ -36,3 +36,27 @@ No processo de avaliação do código, avaliaremos as seguintes características
 * Estrutura das mensagens de commit.
 
 A solução para o problema não é única. O candidato deve analisar o código existente, definir as funcionalidades a serem implementadas e implementa-las. A avaliação da solução apresentada será realizada em conversa com o candidato, com o objetivo de entender o processo de análise e tomada de decisões que levou àquela solução.
+
+## Endpoints
+### Todo
+* Criar 
+POST /todos
+* Alterar
+PUT /todos/{Id}
+* Listar todos
+GET /todos
+* Listar por Id
+GET /todos/{Id}
+* Remover
+DELETE /todos/{Id}
+### Grupo
+* Criar 
+POST /Grupo
+* Listar por Id
+GET /Grupo/{Id}
+### Agrupar Todo 
+* Criar 
+POST /GrupoTodo
+* Listar Grupos e Todos associados
+GET /GrupoTodo/{groupId}
+
