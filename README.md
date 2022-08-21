@@ -39,24 +39,24 @@ A solução para o problema não é única. O candidato deve analisar o código 
 
 ## Endpoints
 ### Todo
-* Criar 
+#### Criar 
 POST /todos
-* Alterar
+#### Alterar
 PUT /todos/{Id}
-* Listar todos
+#### Listar todos
 GET /todos
-* Listar por Id
+####Listar por Id
 GET /todos/{Id}
-* Remover
+#### Remover
 DELETE /todos/{Id}
 ### Grupo
-* Criar 
+#### Criar 
 POST /Grupo
-* Listar por Id
+#### Listar por Id
 GET /Grupo/{Id}
 ### Agrupar Todo 
-* Criar 
+#### Criar 
 POST /GrupoTodo
-* Listar Grupos e Todos associados
+#### Listar Grupos e Todos associados
 GET /GrupoTodo/{groupId}
 
